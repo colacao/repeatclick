@@ -1,7 +1,34 @@
 import storge from "./storge";
 import XPath from "./xpath";
 
-
+function getPosition(ev) {
+		var box = ev.target.getBoundingClientRect();
+		return [box.left, box.top];
+}
+function getXY(ev) {
+		var mid = getMid();
+		var x = ev['touches'] ? ev.touches[0].pageX - mid : ev.clientX + document.body.scrollLeft + document.documentElement.scrollLeft - mid;
+		var y = ev['touches'] ? ev.touches[0].pageY : ev.y + document.body.scrollTop + document.documentElement.scrollLeft;
+		return [x, y];
+}
+function getMid() {
+		var smid = storge.getItem('mid');
+		if (smid) {
+				return smid
+		} else {
+				var ddw = document.documentElement.clientWidth,
+						dbw = document.body.clientWidth,
+						ddsw = document.documentElement.scrollWidth,
+						dbsw = document.body.scrollWidth,
+						mid = 0;
+				if ((dbw || ddw) < (ddsw || dbsw)) {
+						mid = ((ddsw || dbsw) / 2) | 0;
+				} else {
+						mid = ((ddw || dbw) / 2) | 0;
+				}
+				return mid;
+		}
+}
 export default {
 	init:function () {
 		try {
