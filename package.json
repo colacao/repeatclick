@@ -1,0 +1,19 @@
+{
+  "name": "repeatclick",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "scripts": {
+    "prepublish": "node build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/colacao/repeatclick.git"
+  },
+  "author": "caoyueqq@163.com",
+  "license": "ISC",
+  
+  "devDependencies": {
+    "rollup": "^0.49.3",
+    "rollup-plugin-uglify": "^2.0.1"
+  }
+}
