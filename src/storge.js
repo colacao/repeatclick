@@ -1,5 +1,4 @@
-export default  function(){
-		return {
+export default  {
 		getItem: function(key) {
 				try {
 						return sessionStorage.getItem(key)
@@ -14,5 +13,4 @@ export default  function(){
 						window["_storge_" + key] = value;
 				}
 		}
-	}
 };
